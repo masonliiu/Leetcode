@@ -10,10 +10,8 @@ class Solution {
             } 
             if (height[left] < height[right]) {
                 left++;
-                continue;
             } else {
                 right--;
-                continue;
             }
         }
         return storage;
