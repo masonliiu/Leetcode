@@ -5,14 +5,14 @@ class Solution {
         int right = height.length-1;
 
         while (left < right) {
-            if ((right - left) * ((height[right] > height[left]) ? height[left] : height[right]) > storage) {
-                storage = (right - left) * ((height[right] > height[left]) ? height[left] : height[right]);
+            int w = right - left;
+            int min = (height[right] > height[left]) ? height[left] : height[right];
+            int area = w * min;
+            if (area > storage) {
+                storage = area;
             } 
-            if (height[left] < height[right]) {
-                left++;
-            } else {
-                right--;
-            }
+            if (height[left] < height[right]) left++;
+            else right--;
         }
         return storage;
 
