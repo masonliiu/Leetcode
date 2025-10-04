@@ -1,15 +1,18 @@
 class Solution {
     public int maxArea(int[] height) {
-        int storage = Integer.MIN_VALUE;
+        int storage = 0;
         int left = 0;
         int right = height.length-1;
 
         while (left < right) {
-            if (Math.abs(right - left) * Math.min(height[right], height[left]) > storage) {
-                storage = Math.abs(right - left) * Math.min(height[right], height[left]);
+            if ((right - left) * ((height[right] > height[left]) ? height[left] : height[right]) > storage) {
+                storage = (right - left) * ((height[right] > height[left]) ? height[left] : height[right]);
             } 
-            if (height[left] < height[right]) left++; 
-            else right--;
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
         }
         return storage;
 
