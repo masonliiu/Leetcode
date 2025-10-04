@@ -18,7 +18,7 @@ class Solution {
         }
         return storage;
 
-                // for (int i = 0; i < height.length; i++) {
+            // for (int i = 0; i < height.length; i++) {
         //     for (int x = i; x < height.length; x++) {
         //         if (Math.abs(x - i) * Math.min(height[x], height[i]) > storage) {
         //             storage = Math.abs(x - i) * Math.min(height[x], height[i]);
