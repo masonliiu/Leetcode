@@ -8,11 +8,8 @@ class Solution {
             if (Math.abs(right - left) * Math.min(height[right], height[left]) > storage) {
                 storage = Math.abs(right - left) * Math.min(height[right], height[left]);
             } 
-            if (height[left] < height[right]) {
-                left++;
-            } else {
-                right--;
-            }
+            if (height[left] < height[right]) left++; 
+            else right--;
         }
         return storage;
 
