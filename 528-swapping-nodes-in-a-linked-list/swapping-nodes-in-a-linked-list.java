@@ -14,14 +14,11 @@ class Solution {
 
         ListNode first = head;
         ListNode second = head;
-        ListNode storage = head;
 
-        for( int i = 0; i < k; i++) {
-            storage = first;
-            first = first.next;
-        }
+        for( int i = 1; i < k; i++) first = first.next;
+        ListNode storage = first;
 
-        while (first != null) {
+        while (first.next != null) {
             first = first.next;
             second = second.next;
         }
