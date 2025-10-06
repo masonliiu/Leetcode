@@ -20,7 +20,6 @@ class Node {
 class Solution {
     public List<Integer> postorder(Node root) {
         if (root == null) return new ArrayList<>();
-
         List<Integer> res = new ArrayList<>();
 
         dfs(root, res);
