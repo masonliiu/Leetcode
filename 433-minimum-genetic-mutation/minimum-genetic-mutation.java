@@ -4,6 +4,7 @@ class Solution {
         Queue<String> q = new LinkedList<>();
         Set<String> visited = new HashSet<>();
         Set<String> bankSet = new HashSet<>(Arrays.asList(bank));
+        if (!bankSet.contains(endGene)) return -1;
 
         q.add(startGene);
         visited.add(startGene);
