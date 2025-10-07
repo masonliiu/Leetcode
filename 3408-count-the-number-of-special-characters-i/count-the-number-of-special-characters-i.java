@@ -8,23 +8,33 @@ class Solution {
         for (char s : arr) {
             nums.add(s);
         }
+
         for (char s : nums) {
-            if (s == Character.toLowerCase(s)) {
-                if (nums.contains(Character.toUpperCase(s))) {
-                    if (!ars.contains(Character.toLowerCase(s))) {
-                        ars.add(Character.toLowerCase(s));
-                        count++;
-                    }
-                }
-            } else if (s == Character.toUpperCase(s)) {
-                if (nums.contains(Character.toLowerCase(s))) {
-                    if (!ars.contains(Character.toLowerCase(s))) {
-                        ars.add(Character.toLowerCase(s));
-                        count++;
-                    }
+            if (Character.isLowerCase(s)) {
+                char upper = Character.toUpperCase(s);
+                if (nums.contains(upper) && ars.add(s)) {
+                    count++;
                 }
             }
         }
         return count;
+        // for (char s : nums) {
+        //     if (s == Character.toLowerCase(s)) {
+        //         if (nums.contains(Character.toUpperCase(s))) {
+        //             if (!ars.contains(Character.toLowerCase(s))) {
+        //                 ars.add(Character.toLowerCase(s));
+        //                 count++;
+        //             }
+        //         }
+        //     } else if (s == Character.toUpperCase(s)) {do i
+        //         if (nums.contains(Character.toLowerCase(s))) {
+        //             if (!ars.contains(Character.toLowerCase(s))) {
+        //                 ars.add(Character.toLowerCase(s));
+        //                 count++;
+        //             }
+        //         }
+        //     }
+        // }
+        // return count;
     }
 }
