@@ -26,14 +26,5 @@ class Solution {
             nums[i] = even.get(x);
         }
         return nums;
-        // for (int i = 0, x = 0; i < nums.length - 1; i+=2, x++) {
-        //     if (even.get(x) != null) {
-        //         nums[i] = even.get(x);
-        //     }
-        //     if (odd.get(x) != null) {
-        //         nums[i + 1] = odd.get(x);
-        //     }
-        // }
-        // return nums;
     }
 }
