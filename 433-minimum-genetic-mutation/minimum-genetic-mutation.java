@@ -2,21 +2,26 @@ class Solution {
     public int minMutation(String startGene, String endGene, String[] bank) {
         Set<String> bankSet = new HashSet<>(Arrays.asList(bank));
         if (!bankSet.contains(endGene)) return -1;
+
         Queue<String> q = new LinkedList<>();
         Set<String> visited = new HashSet<>();
+
         q.offer(startGene);
         visited.add(startGene);
+
         int level = 0;
 
         while(!q.isEmpty()) {
             int size = q.size();
+            
             for (int i = 0; i < size; i++) {
                 String curr = q.poll();
                 if (curr.equals(endGene)) return level;
-
                 char[] arr = curr.toCharArray();
+
                 for (int pos = 0; pos < 8; pos++) {
                     char old = arr[pos];
+
                     for (char c : new char[] {'A', 'C', 'G', 'T'}) {
                         if ( c== old) continue;
                         arr[pos] = c;
