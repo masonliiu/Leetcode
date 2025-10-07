@@ -1,12 +1,10 @@
 class Solution {
     public int minMutation(String startGene, String endGene, String[] bank) {
-
-        Queue<String> q = new LinkedList<>();
-        Set<String> visited = new HashSet<>();
         Set<String> bankSet = new HashSet<>(Arrays.asList(bank));
         if (!bankSet.contains(endGene)) return -1;
-
-        q.add(startGene);
+        Queue<String> q = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        q.offer(startGene);
         visited.add(startGene);
         int level = 0;
 
@@ -16,16 +14,16 @@ class Solution {
                 String curr = q.poll();
                 if (curr.equals(endGene)) return level;
 
+                char[] arr = curr.toCharArray();
                 for (int pos = 0; pos < 8; pos++) {
+                    char old = arr[pos];
                     for (char c : new char[] {'A', 'C', 'G', 'T'}) {
-                        if (c == curr.charAt(pos)) continue;
-                        String next = curr.substring(0, pos) + c + curr.substring(pos+1);
-                        if (bankSet.contains(next) && !visited.contains(next)) {
-                            q.offer(next);
-                            visited.add(next);
-                        }
-
+                        if ( c== old) continue;
+                        arr[pos] = c;
+                        String next = new String(arr);
+                        if (bankSet.contains(next) && visited.add(next)) q.offer(next);
                     }
+                    arr[pos] = old;
                 }
             }
             level++;
