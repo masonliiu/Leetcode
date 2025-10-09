@@ -2,7 +2,6 @@ class Solution {
     public long countFairPairs(int[] nums, int lower, int upper) {
         Arrays.sort(nums);
         return countLessEqual(nums, upper) - countLessEqual(nums, lower - 1);
-
     }
     private long countLessEqual(int[]nums, int limit) {
         long count = 0;
