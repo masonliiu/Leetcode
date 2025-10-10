@@ -1,6 +1,5 @@
 class Solution {
     public int maximumEnergy(int[] energy, int k) {
-        int amt = 0;
         int[] arr = new int[energy.length];
         int n = energy.length;
         int highest = Integer.MIN_VALUE;
