@@ -1,22 +1,38 @@
 class Solution {
     public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
-
-        int[] arr = new int[k*2];
-        outerLoop:
-        for (int x = 0; x  + 2 * k <= nums.size(); x++) {
-            for (int i = 0, z = x; i < k; i++, z++) {
-            arr[i] = nums.get(z);
-            arr[i + k] = nums.get(z + k);
-            }
-            for (int var = 0; var < k - 1; var++) {
-                if (arr[var] >= arr[var+1]) continue outerLoop;
-            }
-            for (int var = k; var < k * 2 - 1; var++) {
-                if (arr[var] >= arr[var+1]) continue outerLoop;
-            }
+        int max = 1;
+        if (k == 1) {
             return true;
         }
+        for (int i = 0, x = k; x < nums.size()-1; i++, x++) {
+            if (nums.get(i) < nums.get(i+1) && nums.get(x) < nums.get(x+1)) {
+                max++;
+                if (max == k) {
+                    return true;
+                }
+            } else {
+                max = 1;
+            }
+        }
         return false;
+
+        //2
+        // int[] arr = new int[k*2];
+        // outerLoop:
+        // for (int x = 0; x  + 2 * k <= nums.size(); x++) {
+        //     for (int i = 0, z = x; i < k; i++, z++) {
+        //     arr[i] = nums.get(z);
+        //     arr[i + k] = nums.get(z + k);
+        //     }
+        //     for (int var = 0; var < k - 1; var++) {
+        //         if (arr[var] >= arr[var+1]) continue outerLoop;
+        //     }
+        //     for (int var = k; var < k * 2 - 1; var++) {
+        //         if (arr[var] >= arr[var+1]) continue outerLoop;
+        //     }
+        //     return true;
+        // }
+        // return false;
     }
 
         // for (int i = 0; i < nums.size() - k; i++) {
