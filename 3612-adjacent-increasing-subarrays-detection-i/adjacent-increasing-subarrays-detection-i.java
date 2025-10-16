@@ -1,18 +1,12 @@
 class Solution {
     public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
         int max = 1;
-        if (k == 1) {
-            return true;
-        }
+        if (k == 1) return true;
         for (int i = 0, x = k; x < nums.size()-1; i++, x++) {
             if (nums.get(i) < nums.get(i+1) && nums.get(x) < nums.get(x+1)) {
                 max++;
-                if (max == k) {
-                    return true;
-                }
-            } else {
-                max = 1;
-            }
+                if (max == k) return true;
+            } else max = 1;
         }
         return false;
 
