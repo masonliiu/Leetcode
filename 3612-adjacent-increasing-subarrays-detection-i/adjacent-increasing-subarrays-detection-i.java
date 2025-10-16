@@ -8,19 +8,11 @@ class Solution {
             arr[i] = nums.get(z);
             arr[i + k] = nums.get(z + k);
             }
-
-            for ( int y : arr) {
-            }
-
             for (int var = 0; var < k - 1; var++) {
-                if (arr[var] >= arr[var+1]) {
-                continue outerLoop;
-                }
+                if (arr[var] >= arr[var+1]) continue outerLoop;
             }
             for (int var = k; var < k * 2 - 1; var++) {
-                if (arr[var] >= arr[var+1]) {
-                    continue outerLoop;
-                }
+                if (arr[var] >= arr[var+1]) continue outerLoop;
             }
             return true;
         }
