@@ -51,7 +51,6 @@ class Solution {
             value.add(i);
             map.put((char) num, value);
         }
-        System.out.println(map);
         
         int row =0, col =0;
 
@@ -94,7 +93,6 @@ class Solution {
             ans += res;
             res = "";
             
-            System.out.println("row: " + row + " col: " + col);
             row = map.get(target.charAt(z)).get(0);
             col = map.get(target.charAt(z)).get(1);
 
