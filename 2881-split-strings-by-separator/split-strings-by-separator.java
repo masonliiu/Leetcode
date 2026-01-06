@@ -1,11 +1,13 @@
-import java.util.regex.Pattern;
 class Solution {
     public List<String> splitWordsBySeparator(List<String> words, char separator) {
+        String str = "";
+        for (String x : words) {
+            str += x + separator;
+        }
+        String[] parts = str.split("\\"+String.valueOf(separator));
         List<String> res = new ArrayList<>();
-        for (String w : words) {
-            for (String part : w.split(Pattern.quote(String.valueOf(separator)))) {
-                if (!part.isEmpty()) res.add(part);
-            }
+        for (String p : parts) {
+            if (!p.isEmpty()) res.add(p);
         }
         return res;
     }
