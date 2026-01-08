@@ -15,17 +15,11 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        String str = "";
-        return depth(root, str);
+        return depth(root, 0);
     }
-    public int depth(TreeNode root, String str) {
-        if (root == null)
-            return 0;
-        str += root.val;
-        if (root.left == null && root.right == null) {
-            return Integer.valueOf(str);
-
-        }
-        return depth(root.left, str) + depth(root.right, str);
+    public int depth(TreeNode root, int n) {
+        if (root == null) return 0;
+        if (root.left == null && root.right == null) return n*10 + root.val;
+        return depth(root.left, n*10 + root.val) + depth(root.right, n*10 + root.val);
     }
 }
