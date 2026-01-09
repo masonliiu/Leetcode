@@ -9,7 +9,6 @@ class Solution {
             }
         }
         if ((xy + yx) % 2 != 0) return -1;
-        int left =0;
         return xy/2 + yx/2 + (xy % 2 != 0 ? 2 : 0);
     }
 }
