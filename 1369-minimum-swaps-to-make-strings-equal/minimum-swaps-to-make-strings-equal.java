@@ -10,8 +10,7 @@ class Solution {
         }
         if ((xy + yx) % 2 != 0) return -1;
         int left =0;
-        if ( (xy) % 2 != 0) left++;
-        if ( (yx) % 2 != 0) left++;
+        if ( (xy) % 2 != 0) left+=2;
         return xy/2 + yx/2 + left;
         //yyyxxx
         //xxyxxy  6
