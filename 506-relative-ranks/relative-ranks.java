@@ -17,7 +17,7 @@ class Solution {
                                 .boxed()
                                 .sorted(Comparator.reverseOrder())
                                 .mapToInt(Integer::intValue)
-                                .toArray();
+                                .toArray(); //lol
         String[] str = new String[score.length];
 
         for (int i = 0; i < scoresTwo.length; i++) {
