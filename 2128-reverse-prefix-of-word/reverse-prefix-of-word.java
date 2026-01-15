@@ -14,7 +14,6 @@ class Solution {
         // return word;
 
         int i = word.indexOf(ch);
-        if (i != -1) return new StringBuilder(word.substring(0, i + 1)).reverse() + word.substring(i + 1);
-        return word;
+        return new StringBuilder(word.substring(0, i + 1)).reverse().append(word.substring(i + 1)).toString();
     }
 }
