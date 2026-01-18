@@ -4,7 +4,6 @@ class Solution {
         int[] str = new int[2];
         for (int x : nums) {
             list2.add(x);
-            System.out.println(x);
         }
         boolean check = true;
         ArrayList<Integer> list = new ArrayList<>();
@@ -13,7 +12,6 @@ class Solution {
                 if (list2.get(ii) + list2.get(i) == target && i != ii) {
                     str[0] = list2.indexOf(list2.get(i));
                     str[1] = list2.lastIndexOf(list2.get(ii));
-                    System.out.print(str[0] + " " + str[1]);
                     return str;
                 }
             }
