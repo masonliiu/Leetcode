@@ -1,25 +1,25 @@
 class Solution {
     public int similarPairs(String[] words) {
         int pairs = 0;
-        int left = 0, right = 1;
-        while (left < right && left < words.length-1) {
-            List<Character> l = words[left].chars()
-                .mapToObj(i -> (char) i)
-                .distinct()
-                .collect(Collectors.toList());
 
-            List<Character> r = words[right].chars()
-                .mapToObj(i -> (char) i)
-                .distinct()
-                .collect(Collectors.toList());
-            if (l.size() == r.size() && l.containsAll(r)) pairs++;
+        for (int i = 0; i < words.length; i++) {
+            Set<Character> set1 = new HashSet<>();
+            for (char c : words[i].toCharArray()) {
+                set1.add(c);
+            }
 
-            right++;
-            if (right == words.length) {
-                left++;
-                right = left+1;
+            for (int j = i + 1; j < words.length; j++) {
+                Set<Character> set2 = new HashSet<>();
+                for (char c : words[j].toCharArray()) {
+                    set2.add(c);
+                }
+
+                if (set1.equals(set2)) {
+                    pairs++;
+                }
             }
         }
+
         return pairs;
     }
 }
